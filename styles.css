@@ -146,6 +146,7 @@ main > section { margin-bottom: clamp(3.5rem, 7vw, 6rem); }
 .people h3 a { color: var(--ink); text-decoration-thickness: 2px; }
 .people h3 a:hover { color: var(--blue); }
 .people p { font-size: 1rem; }
+.people .role { font-weight: 700; color: var(--navy); line-height: 1.3; margin-bottom: 0.2rem; }
 .tba .initials { background: var(--lavender); color: var(--navy); font-weight: 400; }
 .tba h3, .tba p { color: var(--navy); }
 h2.second { margin-top: clamp(3rem, 6vw, 4.5rem); }
