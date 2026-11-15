@@ -258,14 +258,14 @@
     </div>
   </div>
 </footer>
-<!-- Hero background: African language names drift left in five lanes behind the headline. Decoration only. -->
+<!-- Hero background: African language names drift left in three lanes above the headline. Decoration only. -->
 <script>
 (function () {
   var hero = document.querySelector('.hero'), cv = hero && hero.querySelector('.hero-langs');
   if (!cv || !cv.getContext || !window.ResizeObserver || !document.fonts) return;
   var NAMES = 'Hausa|Kiswahili|العربية|Yorùbá|አማርኛ|Afaan Oromoo|Igbo|Fulfulde|Naijá|Malagasy|Soomaali|isiZulu|Lingála|chiShona|Ikinyarwanda|isiXhosa|Twi|Chichewa|ትግርኛ|Ikirundi|Wolof|Afrikaans|Kanuri|Bamanankan|Mòoré|Luganda|Sesotho|Setswana|Tshiluba|Kikongo|Gĩkũyũ|Dholuo|Sepedi|Xitsonga|Eʋegbe|Emakhuwa|Umbundu|Kimbundu|Kisukuma|Tamaziɣt|Taqbaylit|Sidaamu Afoo|Wolaytta|Tiv|Ibibio|Ichibemba|Zarma|Sängö|siSwati|Dagbani'.split('|');
   // one row per lane: baseline, type size, speed per second (all as fractions of the height above the rule), opacity
-  var LANES = [[.15, .11, .028, .09], [.4, .2, .062, .15], [.56, .11, .034, .09], [.78, .16, .048, .12], [.94, .11, .022, .09]];
+  var LANES = [[.2, .14, .03, .12], [.5, .26, .06, .16], [.8, .16, .045, .13]];
   var ctx = cv.getContext('2d'), h1 = hero.querySelector('h1'), band = hero.querySelector('.hero-band');
   var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
   var navy = getComputedStyle(hero).getPropertyValue('--navy').trim() || '#000080';
@@ -280,21 +280,13 @@
   }
 
   function layout() {
-    var r = hero.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2), rg = document.createRange();
-    rg.selectNodeContents(h1);
-    var edge = rg.getBoundingClientRect().right - r.left + 24, top = band.offsetTop;
+    var r = hero.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2), top = h1.offsetTop;
     W = r.width; H = r.height;
-    var wide = W - edge > W * .3;   // room beside the headline? if not, phone treatment
     cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.fillStyle = navy;
-    left = wide ? edge : 0;
-    // the CSS mask fades names to nothing before they reach the headline
-    cv.style.setProperty('--fade-from', left + 'px');
-    cv.style.setProperty('--fade-to', (wide ? left + W * .2 : 0) + 'px');
     next = 0;
-    // phone keeps only the top and bottom lanes, which run in the clear strips above and below the headline
-    lanes = LANES.filter(function (l, i) { return wide || i % 4 === 0; }).map(function (l, i) {
+    lanes = LANES.map(function (l, i) {
       var size = Math.round(top * l[1]);
       var L = { y: Math.round(top * l[0]), font: '800 ' + size + 'px Archivo, "Helvetica Neue", Arial, sans-serif', gap: size * 1.4, v: top * l[2], a: l[3], k: l[1] / .2, items: [] };
       ctx.font = L.font;
