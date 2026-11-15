@@ -57,6 +57,7 @@
 <main id="main" class="wrap">
 
 <section class="panel mint hero">
+  <canvas class="hero-langs" aria-hidden="true"></canvas>
   <h1>Making Africa<br> safe in AI.</h1>
   <div class="hero-band">
     <p class="lede">AfriSafe studies how AI systems fail in African languages and cultures. We train African researchers to find those failures and fix them.</p>
@@ -286,6 +287,83 @@
     <p class="copy">© 2026 AfriSafe</p>
   </div>
 </footer>
+<!-- Hero background: African language names drift left in five lanes behind the headline. Decoration only. -->
+<script>
+(function () {
+  var hero = document.querySelector('.hero'), cv = hero && hero.querySelector('.hero-langs');
+  if (!cv || !cv.getContext || !window.ResizeObserver || !document.fonts) return;
+  var NAMES = 'Hausa|Kiswahili|العربية|Yorùbá|አማርኛ|Afaan Oromoo|Igbo|Fulfulde|Naijá|Malagasy|Soomaali|isiZulu|Lingála|chiShona|Ikinyarwanda|isiXhosa|Twi|Chichewa|ትግርኛ|Ikirundi|Wolof|Afrikaans|Kanuri|Bamanankan|Mòoré|Luganda|Sesotho|Setswana|Tshiluba|Kikongo|Gĩkũyũ|Dholuo|Sepedi|Xitsonga|Eʋegbe|Emakhuwa|Umbundu|Kimbundu|Kisukuma|Tamaziɣt|Taqbaylit|Sidaamu Afoo|Wolaytta|Tiv|Ibibio|Ichibemba|Zarma|Sängö|siSwati|Dagbani'.split('|');
+  // one row per lane: baseline, type size, speed per second (all as fractions of the height above the rule), opacity
+  var LANES = [[.15, .11, .028, .09], [.4, .2, .062, .15], [.56, .11, .034, .09], [.78, .16, .048, .12], [.94, .11, .022, .09]];
+  var ctx = cv.getContext('2d'), h1 = hero.querySelector('h1'), band = hero.querySelector('.hero-band');
+  var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var navy = getComputedStyle(hero).getPropertyValue('--navy').trim() || '#000080';
+  var W = 0, H = 0, left = 0, next = 0, lanes = [], seen = true, raf = 0, last = 0, px = 0, tx = 0;
+
+  // give an item the next name (a stride of 7 walks all 50 before any repeats) and park it at x
+  function set(L, it, x) {
+    it.t = NAMES[next = (next + 7) % NAMES.length];
+    it.w = ctx.measureText(it.t).width;
+    it.x = x;
+    return x + it.w + L.gap;
+  }
+
+  function layout() {
+    var r = hero.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2), rg = document.createRange();
+    rg.selectNodeContents(h1);
+    var edge = rg.getBoundingClientRect().right - r.left + 24, top = band.offsetTop;
+    W = r.width; H = r.height;
+    var wide = W - edge > W * .3;   // room beside the headline? if not, phone treatment
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.fillStyle = navy;
+    left = wide ? edge : 0;
+    // the CSS mask fades names to nothing before they reach the headline
+    cv.style.setProperty('--fade-from', left + 'px');
+    cv.style.setProperty('--fade-to', (wide ? left + W * .2 : 0) + 'px');
+    next = 0;
+    // phone keeps only the top and bottom lanes, which run in the clear strips above and below the headline
+    lanes = LANES.filter(function (l, i) { return wide || i % 4 === 0; }).map(function (l, i) {
+      var size = Math.round(top * l[1]);
+      var L = { y: Math.round(top * l[0]), font: '800 ' + size + 'px Archivo, "Helvetica Neue", Arial, sans-serif', gap: size * 1.4, v: top * l[2], a: l[3], k: l[1] / .2, items: [] };
+      ctx.font = L.font;
+      for (var x = left - (i % 2) * size * 2; x < W + L.gap;) { var it = {}; L.items.push(it); x = set(L, it, x); }
+      return L;
+    });
+    draw(0);
+    run();
+  }
+
+  function draw(dt) {
+    ctx.clearRect(0, 0, W, H);
+    px += (tx - px) * Math.min(1, dt * 3);   // ease toward the pointer
+    for (var i = 0; i < lanes.length; i++) {
+      var L = lanes[i], end = 0, first = L.items[0], j, it;
+      ctx.font = L.font; ctx.globalAlpha = L.a;
+      for (j = 0; j < L.items.length; j++) {
+        it = L.items[j];
+        it.x -= L.v * dt;
+        end = Math.max(end, it.x + it.w);
+        if (it.x < first.x) first = it;
+        ctx.fillText(it.t, it.x - px * L.k, L.y);
+      }
+      // the lane is about to run short on the right: rename the name that has faded out on the left and queue it there
+      if (end < W + 40) set(L, first.x + first.w < left - 40 ? first : (L.items[L.items.length] = {}), end + L.gap);
+    }
+  }
+
+  function frame(t) { raf = 0; draw(Math.min((t - last) / 1000, .05)); last = t; run(); }
+  function run() { if (!raf && !still && seen && !document.hidden) raf = requestAnimationFrame(frame); }
+
+  document.fonts.ready.then(function () {
+    new ResizeObserver(layout).observe(hero);   // also fires once on observe: that is the first frame
+    if (still) return;
+    new IntersectionObserver(function (e) { seen = e[e.length - 1].isIntersecting; run(); }).observe(hero);
+    document.addEventListener('visibilitychange', run);
+    hero.addEventListener('pointermove', function (e) { if (e.pointerType === 'mouse') tx = (e.clientX / window.innerWidth - .5) * 28; });
+  });
+})();
+</script>
 
 </body>
 </html>

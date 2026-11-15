@@ -83,6 +83,19 @@ main { padding-top: clamp(1.25rem, 3vw, 2rem); }
 /* flex keeps a wrapped second line under the text, clear of the arrow */
 .hero-links .go { display: flex; }
 
+/* --- Hero language names (canvas) ---------------------------------------------------------
+   A decorative canvas behind the hero content; the inline script at the end of index.html draws
+   on it. Out of flow, so it never changes the hero's size. Empty and invisible without JavaScript.
+   The script sets --fade-from and --fade-to so the names fade out before they reach the headline. */
+.hero { position: relative; isolation: isolate; }
+.hero-langs {
+  position: absolute; top: 0; left: 0; z-index: -1; width: 100%; height: 100%; pointer-events: none;
+  --fade-from: 0px; --fade-to: 0px;
+  -webkit-mask-image: linear-gradient(90deg, transparent var(--fade-from), #000 var(--fade-to));
+  mask-image: linear-gradient(90deg, transparent var(--fade-from), #000 var(--fade-to));
+}
+/* --- end hero language names --------------------------------------------------------------- */
+
 main > section { margin-bottom: clamp(3.5rem, 7vw, 6rem); }
 
 /* Columns under a thin rule */
