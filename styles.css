@@ -14,8 +14,7 @@
   --purple: #1f0038;
   --soft: #c9ccd3;
 
-  /* Noto Sans Ethiopic covers the Amharic and Tigrinya names, which Archivo lacks */
-  --font: Archivo, "Noto Sans Ethiopic", "Helvetica Neue", Arial, sans-serif;
+  --font: Archivo, "Helvetica Neue", Arial, sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -25,19 +24,18 @@ img { max-width: 100%; height: auto; display: block; }
 p { margin: 0; }
 a { color: var(--blue); text-underline-offset: 3px; }
 a:focus-visible, summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
-/* blue on the dark surfaces is 1.6:1; mint is 13.8:1 */
-.night a:focus-visible, .foot a:focus-visible { outline-color: var(--mint); }
+/* blue on the dark footer is 1.6:1; mint is 13.8:1 */
+.foot a:focus-visible { outline-color: var(--mint); }
 section[id] { scroll-margin-top: 2rem; }
 
 .skip { position: absolute; left: 1rem; top: -5rem; padding: 0.75rem 1rem; background: var(--white); color: var(--navy); font-weight: 900; }
 .skip:focus { top: 1rem; }
-/* visually hidden, still read by screen readers */
-.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 .wrap { max-width: 84rem; margin: 0 auto; padding-inline: max(1.25rem, 4vw); }
 
 h1, h2, h3 { margin: 0; font-weight: 900; letter-spacing: -0.015em; text-wrap: balance; }
-h1 { font-size: clamp(2.6rem, 5.6vw, 4.75rem); line-height: 1; letter-spacing: -0.025em; }
+/* the headline is the hero: two lines that fill about four fifths of the panel at every width */
+h1 { font-size: clamp(2rem, 10vw, 8.75rem); line-height: 0.92; letter-spacing: -0.035em; }
 h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.1; }
 h3 { font-size: 1.4rem; line-height: 1.2; }
 .label { font-weight: 900; font-size: 1.125rem; line-height: 1.5; letter-spacing: 0; }
@@ -62,30 +60,17 @@ h3 { font-size: 1.4rem; line-height: 1.2; }
 .panel { padding: clamp(1.75rem, 4.5vw, 4rem); display: grid; gap: 1.5rem; align-content: center; justify-items: start; }
 .mint { background: var(--mint); }
 .night { background: linear-gradient(90deg, var(--ink), var(--purple)); color: var(--white); }
-.night .go { color: var(--mint); font-weight: 400; }
-.split { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.hero .panel { min-height: min(34rem, 62vh); }
-.lede { font-size: clamp(1.1rem, 1.5vw, 1.3rem); max-width: 36rem; }
-.mint p a:not(.go) { color: var(--ink); }
 
-/* Language stage: one name at a time, as large as the panel allows (cqi = panel width) */
-.stage { container-type: inline-size; justify-self: stretch; }
-.stage-clip { overflow: hidden; padding-block: 0.12em; }
-.stage-name { font-weight: 900; font-size: clamp(2.4rem, 12.5cqi, 5.75rem); line-height: 1.1; letter-spacing: -0.03em; white-space: nowrap; }
-.stage-meta { display: flex; justify-content: space-between; gap: 1rem; margin-top: 0.5rem; color: var(--mint); font-size: 1.05rem; }
-.stage-count { color: var(--soft); font-variant-numeric: tabular-nums; white-space: nowrap; }
-.stage-bar { height: 2px; margin-top: 1.25rem; background: rgb(255 255 255 / 0.25); }
-.stage-bar span { display: block; height: 100%; background: var(--mint); transform: scaleX(0); transform-origin: left; }
-
-/* The full list stays lit below the stage; the name on stage is marked in mint */
-.langs { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 0.75rem; }
-.langs li { white-space: nowrap; }
-.langs li::before { content: "◆"; content: "◆" / ""; color: var(--coral); font-size: 0.6em; vertical-align: 0.2em; margin-right: 0.45rem; }
-.langs button { font: 700 0.95rem/1.3 var(--font); color: var(--white); background: none; border: 0; padding: 0.25rem 0; cursor: pointer; }
-.langs button:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
-.langs button[aria-current] { color: var(--mint); }
-.langs button:focus-visible { outline: 3px solid var(--mint); outline-offset: 3px; }
-.fact { border-top: 1px solid var(--white); padding-top: 1.25rem; justify-self: stretch; }
+/* Hero: headline across the mint panel; lede and links sit on the page's three columns under a navy rule */
+.hero { padding-top: clamp(3rem, 8vw, 7rem); gap: clamp(2rem, 4vw, 3.5rem); justify-items: stretch; }
+.hero-band { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem 2rem; align-items: start; border-top: 2px solid var(--navy); padding-top: 1.5rem; }
+.lede { grid-column: span 2; max-width: 42rem; font-size: clamp(1.2rem, 1.9vw, 1.6rem); line-height: 1.3; }
+.hero-links { list-style: none; margin: 0; padding: 0; color: var(--navy); }
+.hero-links li { padding-block: 0.75rem; }
+.hero-links li:first-child { padding-top: 0; }
+.hero-links li + li { border-top: 1px solid var(--navy); }
+/* flex keeps a wrapped second line under the text, clear of the arrow */
+.hero-links .go { display: flex; }
 
 main > section { margin-bottom: clamp(3.5rem, 7vw, 6rem); }
 
@@ -193,15 +178,16 @@ h2.second { margin-top: clamp(3rem, 6vw, 4.5rem); }
   .top { flex-wrap: wrap; justify-content: space-between; gap: 0.75rem 1.5rem; }
   .top nav { order: 3; width: 100%; margin-left: 0; flex-wrap: wrap; gap: 0 1.5rem; border-top: 1px solid var(--navy); }
   .top nav a { padding-block: 0.625rem; }
-  .split, .banner, .cols.two, .cols.three, .foot-in { grid-template-columns: minmax(0, 1fr); }
+  .hero-band, .banner, .cols.two, .cols.three, .foot-in { grid-template-columns: minmax(0, 1fr); }
+  .lede { grid-column: auto; }
   .cols.four, .people { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .banner > div { border-left: 0; border-top: 2px solid var(--navy); }
-  .hero .panel { min-height: 0; }
   .copy, .foot nav { grid-column: 1; }
 }
 @media (max-width: 34rem) {
   .cols.four { grid-template-columns: minmax(0, 1fr); }
   .logo { font-size: 1.25rem; letter-spacing: 0.16em; }
+  .hero { padding-inline: 1.25rem; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
