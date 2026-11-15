@@ -57,12 +57,9 @@ h3 { font-size: 1.4rem; line-height: 1.2; }
 /* Logo: an A whose crossbar is a tick (tested, passed), beside the name in the heading face */
 .logo { display: inline-flex; align-items: center; gap: 0.6rem; font-weight: 900; font-size: 1.7rem; line-height: 1; letter-spacing: -0.035em; text-decoration: none; color: var(--navy); }
 .mark { width: 2.25rem; height: 2.25rem; flex: none; }
-.mark-box { fill: var(--navy); }
-.mark-a { fill: var(--white); }
-.mark-tick { fill: none; stroke: var(--mint); stroke-width: 4; }
-.foot .mark-box { fill: var(--mint); }
-.foot .mark-a { fill: var(--ink); }
-.foot .mark-tick { stroke: var(--navy); }
+.mark-box { fill: var(--mint); }
+.mark-a { fill: var(--ink); }
+.mark-tick { fill: none; stroke: var(--navy); stroke-width: 4; }
 
 /* Panels */
 .panel { padding: clamp(1.75rem, 4.5vw, 4rem); display: grid; gap: 1.5rem; align-content: center; justify-items: start; }
