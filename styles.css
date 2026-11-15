@@ -103,8 +103,6 @@ main > section { margin-bottom: clamp(3.5rem, 7vw, 6rem); }
 .cols.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .cols.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .cols > * { border-top: 1px solid var(--navy); padding-top: 1.25rem; display: grid; gap: 0.75rem; align-content: start; justify-items: start; }
-/* pin the three arrow links to one baseline */
-#involved .cols > * { grid-template-rows: auto 1fr auto; }
 
 /* Dark facts panel */
 .facts { display: block; margin-top: 2.5rem; }
