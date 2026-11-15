@@ -157,6 +157,9 @@ main > section { margin-bottom: clamp(3.5rem, 7vw, 6rem); }
 .tba h3, .tba p { color: var(--navy); }
 h2.second { margin-top: clamp(3rem, 6vw, 4.5rem); }
 
+.more { margin-top: 1.75rem; color: var(--navy); }
+.page-title { font-size: clamp(2rem, 4vw, 3.1rem); }
+
 /* FAQ */
 .qa { margin-top: 2.5rem; border-bottom: 1px solid var(--navy); }
 .qa details { border-top: 1px solid var(--navy); }
