@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AfriSafe: Making Africa Safe in AI</title>
+<meta name="description" content="AfriSafe studies how AI systems fail in African languages and cultures, and trains African researchers to fix them.">
+<meta name="theme-color" content="#000080">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AfriSafe">
+<meta name="twitter:card" content="summary">
+<!-- TODO once the site URL is fixed: add rel=canonical, og:url and og:image (1200x630, absolute URL). -->
+<meta property="og:title" content="AfriSafe: Making Africa Safe in AI">
+<meta property="og:description" content="AI safety, alignment and red teaming research for African languages and cultures. Fellowship applications opening soon.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000080'/%3E%3Cpath d='M16 5L27 16L16 27L5 16z' fill='%23b0f5a2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;900&family=Noto+Sans+Ethiopic:wght@900&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "AfriSafe",
+  "slogan": "Making Africa safe in AI",
+  "description": "AfriSafe studies how AI systems fail in African languages and cultures, and trains African researchers to fix them.",
+  "founder": {
+    "@type": "Person",
+    "name": "Shamsuddeen Muhammad",
+    "url": "https://shmuhammadd.github.io",
+    "affiliation": { "@type": "CollegeOrUniversity", "name": "Imperial College London" },
+    "sameAs": ["https://github.com/shmuhammadd", "https://www.linkedin.com/in/shmuhammad"]
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- EDIT ME: every contact link on this page uses one address. Search for "mailto:" to change it. -->
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="top wrap">
+  <a class="logo" href="#top">AfriSafe</a>
+  <nav aria-label="Sections">
+    <a href="#problem">Problem</a>
+    <a href="#research">Research</a>
+    <a href="#fellowship">Fellowship</a>
+    <a href="#papers">Papers</a>
+    <a href="#founder">Founder</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+  <a class="go" href="mailto:s.muhammad@imperial.ac.uk?subject=AfriSafe%20Fellowship%20interest">Register interest</a>
+</header>
+
+<main id="main" class="wrap">
+
+<section class="split hero">
+  <div class="panel mint">
+    <h1>Making Africa safe in AI.</h1>
+    <p class="lede">AfriSafe studies how AI systems fail in African languages and cultures. We train African researchers to find those failures and fix them.</p>
+    <p><a class="go" href="#fellowship">Fellowship applications opening soon</a></p>
+    <p><a class="go" href="#research">Read our research</a></p>
+  </div>
+  <!-- Language names as their speakers write them. -->
+  <div class="panel night">
+    <p class="label">Languages we work in</p>
+    <!-- The stage shows one language at a time; the script at the end of the page drives it.
+         Without script it stays on Hausa and the list below still reads in full. -->
+    <div class="stage" aria-hidden="true">
+      <div class="stage-clip"><p class="stage-name" lang="ha">Hausa</p></div>
+      <p class="stage-meta"><span class="stage-where">Hausa · Nigeria, Niger</span><span class="stage-count">1 / 50</span></p>
+      <div class="stage-bar"><span></span></div>
+    </div>
+    <ul class="langs" role="list">
+      <li><button type="button" lang="ha" data-en="Hausa" data-where="Nigeria, Niger">Hausa</button></li>
+      <li><button type="button" lang="sw" data-en="Swahili" data-where="Tanzania, Kenya, Uganda">Kiswahili</button></li>
+      <li><button type="button" lang="ar" data-en="Arabic" data-where="North Africa, Sudan" aria-label="Arabic">العربية</button></li>
+      <li><button type="button" lang="yo" data-en="Yoruba" data-where="Nigeria, Benin">Yorùbá</button></li>
+      <li><button type="button" lang="am" data-en="Amharic" data-where="Ethiopia" aria-label="Amharic">አማርኛ</button></li>
+      <li><button type="button" lang="om" data-en="Oromo" data-where="Ethiopia, Kenya">Afaan Oromoo</button></li>
+      <li><button type="button" lang="ig" data-en="Igbo" data-where="Nigeria">Igbo</button></li>
+      <li><button type="button" lang="ff" data-en="Fula" data-where="West and Central Africa">Fulfulde</button></li>
+      <li><button type="button" lang="pcm" data-en="Nigerian Pidgin" data-where="Nigeria">Naijá</button></li>
+      <li><button type="button" lang="mg" data-en="Malagasy" data-where="Madagascar">Malagasy</button></li>
+      <li><button type="button" lang="so" data-en="Somali" data-where="Somalia, Ethiopia, Kenya">Soomaali</button></li>
+      <li><button type="button" lang="zu" data-en="Zulu" data-where="South Africa">isiZulu</button></li>
+      <li><button type="button" lang="ln" data-en="Lingala" data-where="DR Congo, Congo">Lingála</button></li>
+      <li><button type="button" lang="sn" data-en="Shona" data-where="Zimbabwe">chiShona</button></li>
+      <li><button type="button" lang="rw" data-en="Kinyarwanda" data-where="Rwanda">Ikinyarwanda</button></li>
+      <li><button type="button" lang="xh" data-en="Xhosa" data-where="South Africa">isiXhosa</button></li>
+      <li><button type="button" lang="tw" data-en="Akan (Twi)" data-where="Ghana">Twi</button></li>
+      <li><button type="button" lang="ny" data-en="Chewa" data-where="Malawi, Zambia">Chichewa</button></li>
+      <li><button type="button" lang="ti" data-en="Tigrinya" data-where="Eritrea, Ethiopia" aria-label="Tigrinya">ትግርኛ</button></li>
+      <li><button type="button" lang="rn" data-en="Kirundi" data-where="Burundi">Ikirundi</button></li>
+      <li><button type="button" lang="wo" data-en="Wolof" data-where="Senegal, The Gambia">Wolof</button></li>
+      <li><button type="button" lang="af" data-en="Afrikaans" data-where="South Africa, Namibia">Afrikaans</button></li>
+      <li><button type="button" lang="kr" data-en="Kanuri" data-where="Nigeria, Niger, Chad">Kanuri</button></li>
+      <li><button type="button" lang="bm" data-en="Bambara" data-where="Mali">Bamanankan</button></li>
+      <li><button type="button" lang="mos" data-en="Mossi" data-where="Burkina Faso">Mòoré</button></li>
+      <li><button type="button" lang="lg" data-en="Ganda" data-where="Uganda">Luganda</button></li>
+      <li><button type="button" lang="st" data-en="Sotho" data-where="Lesotho, South Africa">Sesotho</button></li>
+      <li><button type="button" lang="tn" data-en="Tswana" data-where="Botswana, South Africa">Setswana</button></li>
+      <li><button type="button" lang="lua" data-en="Luba-Kasai" data-where="DR Congo">Tshiluba</button></li>
+      <li><button type="button" lang="kg" data-en="Kongo" data-where="DR Congo, Angola, Congo">Kikongo</button></li>
+      <li><button type="button" lang="ki" data-en="Kikuyu" data-where="Kenya">Gĩkũyũ</button></li>
+      <li><button type="button" lang="luo" data-en="Luo" data-where="Kenya, Tanzania">Dholuo</button></li>
+      <li><button type="button" lang="nso" data-en="Northern Sotho" data-where="South Africa">Sepedi</button></li>
+      <li><button type="button" lang="ts" data-en="Tsonga" data-where="South Africa, Mozambique">Xitsonga</button></li>
+      <li><button type="button" lang="ee" data-en="Ewe" data-where="Ghana, Togo">Eʋegbe</button></li>
+      <li><button type="button" lang="vmw" data-en="Makhuwa" data-where="Mozambique">Emakhuwa</button></li>
+      <li><button type="button" lang="umb" data-en="Umbundu" data-where="Angola">Umbundu</button></li>
+      <li><button type="button" lang="kmb" data-en="Kimbundu" data-where="Angola">Kimbundu</button></li>
+      <li><button type="button" lang="suk" data-en="Sukuma" data-where="Tanzania">Kisukuma</button></li>
+      <li><button type="button" lang="zgh" data-en="Tamazight" data-where="Morocco, Algeria">Tamaziɣt</button></li>
+      <li><button type="button" lang="kab" data-en="Kabyle" data-where="Algeria">Taqbaylit</button></li>
+      <li><button type="button" lang="sid" data-en="Sidamo" data-where="Ethiopia">Sidaamu Afoo</button></li>
+      <li><button type="button" lang="wal" data-en="Wolaytta" data-where="Ethiopia">Wolaytta</button></li>
+      <li><button type="button" lang="tiv" data-en="Tiv" data-where="Nigeria">Tiv</button></li>
+      <li><button type="button" lang="ibb" data-en="Ibibio" data-where="Nigeria">Ibibio</button></li>
+      <li><button type="button" lang="bem" data-en="Bemba" data-where="Zambia">Ichibemba</button></li>
+      <li><button type="button" lang="dje" data-en="Zarma" data-where="Niger">Zarma</button></li>
+      <li><button type="button" lang="sg" data-en="Sango" data-where="Central African Republic">Sängö</button></li>
+      <li><button type="button" lang="ss" data-en="Swazi" data-where="Eswatini, South Africa">siSwati</button></li>
+      <li><button type="button" lang="dag" data-en="Dagbani" data-where="Ghana">Dagbani</button></li>
+    </ul>
+    <p class="fact">Africa has more than 2,000 languages. Most AI safety tests cover one.</p>
+  </div>
+</section>
+
+<section id="problem" class="block">
+  <h2>AI safety work stops at English</h2>
+  <p class="intro">Three gaps that AfriSafe works to close.</p>
+  <div class="cols three">
+    <article>
+      <h3>Safety tests are written in English</h3>
+      <p>A model that refuses a harmful request in English may answer the same request in Hausa or Zulu. Few labs test for it.</p>
+    </article>
+    <article>
+      <h3>Alignment assumes Western values</h3>
+      <p>Models misread African norms on family, religion and respect. They give advice that fits London and fails in Kano.</p>
+    </article>
+    <article>
+      <h3>Few African researchers work on safety</h3>
+      <p>The people who speak these languages are missing from the teams that test the models.</p>
+    </article>
+  </div>
+</section>
+
+<section id="research" class="panel night facts">
+  <div class="facts-head">
+    <h2 class="label">What we work on</h2>
+    <a class="go" href="mailto:s.muhammad@imperial.ac.uk?subject=Research%20with%20AfriSafe">Propose a project</a>
+  </div>
+  <div class="cols two">
+    <article>
+      <h3>Red teaming in African languages</h3>
+      <p>We attack models in the languages their makers did not test. Native speakers write the prompts, so the attacks use real slang, proverbs and code-switching.</p>
+    </article>
+    <article>
+      <h3>Cultural alignment</h3>
+      <p>We measure how well models know everyday life across African communities, and where their answers carry another culture's assumptions.</p>
+    </article>
+    <article>
+      <h3>Safety benchmarks</h3>
+      <p>We build open test sets for hate speech, toxicity and harmful advice in African languages, labelled by people who speak them.</p>
+    </article>
+    <article>
+      <h3>Alignment of multilingual models</h3>
+      <p>We study why safety training in English fails to carry over to other languages, and test methods that close the gap.</p>
+    </article>
+    <article>
+      <h3>Policy and governance</h3>
+      <p>We write briefs for African regulators who must decide how AI systems are tested before they reach the public.</p>
+    </article>
+    <article>
+      <h3>Training new researchers</h3>
+      <p>The AfriSafe Fellowship takes people who know these languages and teaches them to test AI systems.</p>
+    </article>
+  </div>
+</section>
+
+<section id="fellowship" class="block">
+  <div class="banner">
+    <h2>The AfriSafe Fellowship</h2>
+    <div>
+      <p>Train as an AI safety researcher, working on your own languages. Dates, stipend and cohort size will be announced here.</p>
+      <a class="go" href="mailto:s.muhammad@imperial.ac.uk?subject=AfriSafe%20Fellowship%20interest">Register interest and we will email you</a>
+    </div>
+  </div>
+  <ol class="cols four" role="list">
+    <li>
+      <h3>1. Apply</h3>
+      <p>Send a short application and a research idea. We look for people who know an African language and can code.</p>
+    </li>
+    <li>
+      <h3>2. Train</h3>
+      <p>Study red teaming, evaluation and alignment through taught sessions and paper readings.</p>
+    </li>
+    <li>
+      <h3>3. Research</h3>
+      <p>Run a project with a mentor. Test a real model in a real language and record what breaks.</p>
+    </li>
+    <li>
+      <h3>4. Publish</h3>
+      <p>Release the paper, the dataset or the benchmark openly, so labs and regulators can use it.</p>
+    </li>
+  </ol>
+</section>
+
+<section id="papers" class="block">
+  <h2>Papers we build on</h2>
+  <p class="intro">Published research by our founder and collaborators.</p>
+  <ul class="papers" role="list">
+    <li>
+      <a href="https://arxiv.org/abs/2605.19190">Going PLACES: Participatory Localized Red Teaming for Text-to-Image Safety in the Global South</a>
+      <span>FAccT 2026 · Red teaming</span>
+    </li>
+    <li>
+      <a href="https://aclanthology.org/2025.naacl-long.92/">AfriHate: A Multilingual Collection of Hate Speech and Abusive Language Datasets for African Languages</a>
+      <span>NAACL 2025 · Benchmarks</span>
+    </li>
+    <li>
+      <a href="https://arxiv.org/abs/2406.09948">BLEnD: A Benchmark for LLMs on Everyday Knowledge in Diverse Cultures and Languages</a>
+      <span>NeurIPS 2024 · Cultural alignment</span>
+    </li>
+    <li>
+      <a href="https://arxiv.org/abs/2505.20624">POLAR: A Benchmark for Multilingual, Multicultural, and Multi-Event Online Polarization</a>
+      <span>arXiv 2025 · Benchmarks</span>
+    </li>
+  </ul>
+</section>
+
+<section id="founder" class="split">
+  <div class="panel mint">
+    <h2>Shamsuddeen Muhammad</h2>
+    <p>Shamsuddeen is a Google DeepMind Academic Fellow, a Royal Society Career Development Fellow and an AI2050 Fellow at Imperial College London. He builds open datasets and benchmarks for African languages and works on making multilingual language models better aligned and safer.</p>
+    <p>He co-founded <a href="https://hausanlp.github.io/">HausaNLP</a> and founded <a href="https://arewadatascience.github.io/">Arewa Data Science Academy</a>, which trains data scientists across northern Nigeria.</p>
+    <p><a class="go" href="https://shmuhammadd.github.io">shmuhammadd.github.io</a></p>
+  </div>
+  <img src="assets/founder.jpg" alt="Shamsuddeen Muhammad" width="638" height="574" loading="lazy" decoding="async">
+</section>
+
+<section id="involved" class="block">
+  <h2>Three ways to work with us</h2>
+  <div class="cols three">
+    <article>
+      <h3>Fund a fellow</h3>
+      <p>Pay for one researcher's stipend, compute and mentoring for a full cohort.</p>
+      <a class="go" href="mailto:s.muhammad@imperial.ac.uk?subject=Funding%20AfriSafe">Talk to us about funding</a>
+    </article>
+    <article>
+      <h3>Mentor a fellow</h3>
+      <p>Guide one project from idea to paper. We ask for about an hour a week.</p>
+      <a class="go" href="mailto:s.muhammad@imperial.ac.uk?subject=Mentoring%20at%20AfriSafe">Offer to mentor</a>
+    </article>
+    <article>
+      <h3>Collaborate on research</h3>
+      <p>Bring a model, a dataset or a question. We bring speakers and annotators for the languages you need tested.</p>
+      <a class="go" href="mailto:s.muhammad@imperial.ac.uk?subject=Research%20with%20AfriSafe">Propose a project</a>
+    </article>
+  </div>
+</section>
+
+<section id="faq" class="block">
+  <h2>Questions people ask</h2>
+  <!-- Draft answers. Founder to confirm each one before launch. -->
+  <div class="qa">
+    <details open>
+      <summary>What is AfriSafe?</summary>
+      <p>AfriSafe is a research group working on AI safety for Africa. We test AI models in African languages, publish what we find, and train new researchers through a fellowship.</p>
+    </details>
+    <details>
+      <summary>When do fellowship applications open?</summary>
+      <p>We will announce the date on this page. Register your interest by email and we will tell you first.</p>
+    </details>
+    <details>
+      <summary>Who is the fellowship for?</summary>
+      <p>Students and early-career researchers who know at least one African language and can program. You do not need earlier work in AI safety.</p>
+    </details>
+    <details>
+      <summary>Do I need a PhD?</summary>
+      <p>No. We care about what you can do and what you want to study.</p>
+    </details>
+    <details>
+      <summary>Which languages do you cover?</summary>
+      <p>Any African language. Our published work so far covers Hausa, Yoruba, Igbo, Swahili, Amharic and more than a dozen others.</p>
+    </details>
+  </div>
+</section>
+
+<section class="block">
+  <div class="banner">
+    <h2>Help test AI in the languages Africa speaks</h2>
+    <div>
+      <p>Join the fellowship, mentor a researcher, or bring us a model to test.</p>
+      <a class="go" href="mailto:s.muhammad@imperial.ac.uk?subject=AfriSafe">Contact us</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <div>
+      <a class="logo" href="#top">AfriSafe</a>
+      <p>Making Africa safe in AI</p>
+      <p><a href="mailto:s.muhammad@imperial.ac.uk">s.muhammad@imperial.ac.uk</a></p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="#research">Research</a>
+      <a href="#fellowship">Fellowship</a>
+      <a href="#papers">Papers</a>
+      <a href="#involved">Get involved</a>
+      <a href="https://github.com/shmuhammadd">GitHub</a>
+      <a href="https://www.linkedin.com/in/shmuhammad">LinkedIn</a>
+    </nav>
+    <p class="copy">© 2026 AfriSafe</p>
+  </div>
+</footer>
+
+<script>
+// Language stage: shows each language in turn, large. Click a name to jump to it.
+(() => {
+  const buttons = [...document.querySelectorAll('.langs button')];
+  const name = document.querySelector('.stage-name');
+  const where = document.querySelector('.stage-where');
+  const count = document.querySelector('.stage-count');
+  const bar = document.querySelector('.stage-bar span');
+  const panel = name && name.closest('.panel');
+  if (!buttons.length || !panel || !name.animate) return;
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const HOLD = 2200;
+  let i = 0, timer, paused = false;
+
+  function fill() {
+    buttons.forEach((b, n) => b.toggleAttribute('aria-current', n === i));
+    const b = buttons[i];
+    name.textContent = b.textContent;
+    name.lang = b.lang;
+    where.textContent = b.dataset.en + ' · ' + b.dataset.where;
+    count.textContent = (i + 1) + ' / ' + buttons.length;
+  }
+  function schedule() {
+    clearTimeout(timer);
+    bar.getAnimations().forEach(a => a.cancel());
+    if (still || paused) return;
+    bar.animate([{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: HOLD, fill: 'forwards' });
+    timer = setTimeout(() => show((i + 1) % buttons.length), HOLD);
+  }
+  function show(n) {
+    i = n;
+    if (still) { fill(); return; }
+    name.animate([{ transform: 'none', opacity: 1 }, { transform: 'translateY(-70%)', opacity: 0 }],
+      { duration: 220, easing: 'ease-in' }).finished.then(() => {
+        fill();
+        name.animate([{ transform: 'translateY(90%)', opacity: 0 }, { transform: 'none', opacity: 1 }],
+          { duration: 520, easing: 'cubic-bezier(.16,1,.3,1)' });
+        schedule();
+      });
+  }
+  buttons.forEach((b, n) => b.addEventListener('click', () => show(n)));
+  const pause = on => { paused = on; schedule(); };
+  panel.addEventListener('mouseenter', () => pause(true));
+  panel.addEventListener('mouseleave', () => pause(false));
+  panel.addEventListener('focusin', () => pause(true));
+  panel.addEventListener('focusout', () => pause(false));
+  fill();
+  schedule();
+})();
+</script>
+</body>
+</html>
