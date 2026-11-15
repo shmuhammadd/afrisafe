@@ -160,12 +160,16 @@ h2.second { margin-top: clamp(3rem, 6vw, 4.5rem); }
 /* FAQ */
 .qa { margin-top: 2.5rem; border-bottom: 1px solid var(--navy); }
 .qa details { border-top: 1px solid var(--navy); }
-.qa summary { cursor: pointer; list-style: none; padding-block: 1.1rem; font-weight: 800; font-size: 1.2rem; display: flex; justify-content: space-between; gap: 1rem; }
+.qa summary { cursor: pointer; list-style: none; padding-block: 1.25rem; font-weight: 800; font-size: 1.2rem; display: flex; justify-content: space-between; gap: 1rem; }
 .qa summary:hover { color: var(--navy); text-decoration: underline; text-decoration-thickness: 2px; }
 .qa summary::-webkit-details-marker { display: none; }
-.qa summary::after { content: "+"; content: "+" / ""; font-weight: 400; }
+.qa summary::after { content: "+"; content: "+" / ""; font-weight: 400; font-size: 1.5rem; line-height: 1; color: var(--navy); }
 .qa details[open] summary::after { content: "−"; content: "−" / ""; }
-.qa details p { padding-bottom: 1.5rem; max-width: 38rem; }
+.qa details[open] summary { color: var(--navy); }
+.qa details p { padding-bottom: 1.75rem; max-width: 38rem; }
+.qa details p a { color: var(--navy); text-decoration-thickness: 2px; }
+.faq-head { display: grid; gap: 1rem; justify-items: start; align-content: start; }
+.faq-head .go { color: var(--navy); }
 
 /* Footer: brand, then three short link columns, then a base line. Same near-black as the header. */
 .foot { background: var(--ink); color: var(--white); padding-block: clamp(3rem, 6vw, 4.5rem) 1.5rem; font-size: 1rem; }
