@@ -170,16 +170,17 @@ h2.second { margin-top: clamp(3rem, 6vw, 4.5rem); }
 .qa details[open] summary::after { content: "−"; content: "−" / ""; }
 .qa details p { padding-bottom: 1.5rem; max-width: 38rem; }
 
-/* Footer, on the same three-column grid as the page */
-.foot { background: var(--ink); color: var(--white); padding-block: 3.5rem; }
-.foot-in { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; align-items: start; }
-.foot .logo { color: var(--white); margin-bottom: 1rem; }
-.foot p { font-size: 1rem; }
-.foot p a { color: var(--white); }
-.foot nav { grid-column: span 2; display: flex; flex-wrap: wrap; gap: 0.25rem 2rem; border-top: 1px solid var(--soft); padding-top: 0.75rem; }
-.foot nav a { color: var(--white); text-decoration: none; font-size: 1rem; padding-block: 0.5rem; }
-.foot nav a:hover { text-decoration: underline; }
-.copy { grid-column: 2 / -1; color: var(--soft); }
+/* Footer: brand, then three short link columns, then a base line. Same near-black as the header. */
+.foot { background: var(--ink); color: var(--white); padding-block: clamp(3rem, 6vw, 4.5rem) 1.5rem; font-size: 1rem; }
+.foot-in { display: grid; grid-template-columns: 1.5fr 1fr 1.3fr 1fr; gap: 2.5rem 2rem; align-items: start; }
+.foot-in > * { display: grid; gap: 0.6rem; justify-items: start; align-content: start; }
+.foot .logo { color: var(--white); margin-bottom: 0.4rem; }
+.foot-brand p { color: var(--soft); }
+.foot h2 { font-size: 1rem; font-weight: 800; letter-spacing: 0; line-height: 1.45; margin-bottom: 0.25rem; }
+.foot a:not(.logo) { color: var(--white); text-decoration: none; }
+.foot a:not(.logo):hover { color: var(--mint); text-decoration: underline; text-decoration-thickness: 2px; }
+.foot-base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 2rem; margin-top: clamp(2.5rem, 5vw, 3.5rem); padding-top: 1.25rem; border-top: 1px solid rgb(255 255 255 / 0.3); color: var(--soft); font-size: 0.9rem; }
+.foot-base a:not(.logo) { color: var(--soft); }
 
 @media (min-width: 60.01rem) {
   /* FAQ: heading in the first third, questions in the other two */
@@ -206,7 +207,6 @@ h2.second { margin-top: clamp(3rem, 6vw, 4.5rem); }
   .lede { grid-column: auto; }
   .cols.four, .people { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .banner > div { border-left: 0; border-top: 2px solid var(--navy); }
-  .copy, .foot nav { grid-column: 1; }
 }
 @media (max-width: 34rem) {
   .cols.four { grid-template-columns: minmax(0, 1fr); }
