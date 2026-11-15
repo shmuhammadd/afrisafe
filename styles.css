@@ -40,7 +40,6 @@ h1, h2, h3 { margin: 0; font-weight: 800; letter-spacing: -0.01em; text-wrap: ba
 h1 { font-size: clamp(2.5rem, 5.4vw, 4.6rem); line-height: 1; letter-spacing: -0.02em; }
 h2 { font-size: clamp(1.5rem, 2.3vw, 2.05rem); line-height: 1.15; }
 h3 { font-size: 1.3rem; line-height: 1.2; }
-.label { font-weight: 800; font-size: 1.0625rem; line-height: 1.5; letter-spacing: 0; }
 .intro { margin-top: 0.9rem; max-width: 46rem; }
 
 /* Arrow link: the one call-to-action style on the site.
@@ -110,7 +109,7 @@ main > section { margin-bottom: clamp(3.5rem, 7vw, 6rem); }
 /* Dark facts panel */
 .facts { display: block; }
 .facts-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 1rem 2rem; }
-.facts .cols { margin-top: 2rem; gap: 2.5rem 2rem; }
+.facts .cols { margin-top: 2.5rem; gap: 2.5rem 2rem; }
 .facts .cols > * { border-top-color: var(--white); }
 .facts h3 { font-size: clamp(1.3rem, 2vw, 1.7rem); }
 .facts .cols p { color: var(--soft); font-size: 1rem; }
