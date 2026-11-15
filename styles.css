@@ -25,7 +25,7 @@ p { margin: 0; }
 a { color: var(--blue); text-underline-offset: 3px; }
 a:focus-visible, summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 /* blue on the dark footer is 1.6:1; mint is 13.8:1 */
-.foot a:focus-visible { outline-color: var(--mint); }
+.top a:focus-visible, .foot a:focus-visible { outline-color: var(--mint); }
 section[id] { scroll-margin-top: 2rem; }
 
 .skip { position: absolute; left: 1rem; top: -5rem; padding: 0.75rem 1rem; background: var(--white); color: var(--navy); font-weight: 900; }
@@ -49,11 +49,15 @@ h3 { font-size: 1.4rem; line-height: 1.2; }
 .go:hover::before { transform: translateX(4px); }
 
 /* Header */
-.top { display: flex; align-items: center; gap: 2rem; padding-block: 1.5rem; }
+/* Black bar across the full width, matching the footer, so the page opens and closes on the same band */
+.top { background: var(--ink); color: var(--white); }
+.top-in { display: flex; align-items: center; gap: 2rem; padding-block: 1.1rem; }
+.top .logo { color: var(--white); }
+main { padding-top: clamp(1.25rem, 3vw, 2rem); }
 .top nav { display: flex; gap: clamp(1rem, 1.8vw, 1.75rem); margin-left: auto; }
-.top nav a { color: var(--ink); text-decoration: none; font-size: 1rem; }
-.top nav a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
-.top .go { color: var(--navy); font-size: 1rem; white-space: nowrap; }
+.top nav a { color: var(--white); text-decoration: none; font-size: 1rem; }
+.top nav a:hover { color: var(--mint); text-decoration: underline; text-decoration-thickness: 2px; }
+.top .go { color: var(--mint); font-size: 1rem; white-space: nowrap; }
 /* Logo: an A whose crossbar is a tick (tested, passed), beside the name in the heading face */
 .logo { display: inline-flex; align-items: center; gap: 0.6rem; font-weight: 900; font-size: 1.7rem; line-height: 1; letter-spacing: -0.035em; text-decoration: none; color: var(--navy); }
 .mark { width: 2.25rem; height: 2.25rem; flex: none; }
@@ -180,8 +184,8 @@ h2.second { margin-top: clamp(3rem, 6vw, 4.5rem); }
 
 @media (max-width: 60rem) {
   /* section links wrap to a second row under a rule; no menu button needed */
-  .top { flex-wrap: wrap; justify-content: space-between; gap: 0.75rem 1.5rem; }
-  .top nav { order: 3; width: 100%; margin-left: 0; flex-wrap: wrap; gap: 0 1.5rem; border-top: 1px solid var(--navy); }
+  .top-in { flex-wrap: wrap; justify-content: space-between; gap: 0.75rem 1.5rem; }
+  .top nav { order: 3; width: 100%; margin-left: 0; flex-wrap: wrap; gap: 0 1.5rem; border-top: 1px solid rgb(255 255 255 / 0.3); }
   .top nav a { padding-block: 0.625rem; }
   .hero-band, .banner, .cols.two, .cols.three, .foot-in { grid-template-columns: minmax(0, 1fr); }
   .lede { grid-column: auto; }
