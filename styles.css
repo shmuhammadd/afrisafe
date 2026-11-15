@@ -58,7 +58,6 @@ main { padding-top: clamp(1.25rem, 3vw, 2rem); }
 .top nav { display: flex; gap: clamp(1rem, 1.8vw, 1.75rem); margin-left: auto; }
 .top nav a { color: var(--white); text-decoration: none; font-size: 1rem; }
 .top nav a:hover { color: var(--mint); text-decoration: underline; text-decoration-thickness: 2px; }
-.top .go { color: var(--mint); font-size: 1rem; white-space: nowrap; }
 /* Logo: an A whose crossbar is a tick (tested, passed), beside the name in the heading face */
 .logo { display: inline-flex; align-items: center; gap: 0.6rem; font-weight: 800; font-size: 1.5rem; line-height: 1; letter-spacing: -0.02em; text-decoration: none; color: var(--navy); }
 .mark { width: 2.25rem; height: 2.25rem; flex: none; }
