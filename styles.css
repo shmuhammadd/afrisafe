@@ -1,6 +1,6 @@
 /* Layout: white page, inset blocks. Colour and type follow imperial.ac.uk:
    black-weight sentence-case headings, plain grotesque body, thin rules, arrow links,
-   mint and lavender panels, a dark panel that fades to purple.
+   mint and lavender panels, a dark panel that fades to deep navy.
    Type: Archivo at weight 800 for headings and 400 for text. Measured against Imperial's own
    face (licensed to Imperial, so not used here) it is the closest free match in weight and width.
    Sizes follow Imperial's scale: hero up to 74px, h2 up to 33px, h3 about 21px. */
@@ -10,13 +10,13 @@
   --white: #ffffff;
   --navy: #000080;
   --blue: #0000cd;
-  --mint: #b0f5a2;
+  --mint: #a8f0b2;
   --lavender: #e5e5f2;
-  --purple: #1f0038;
+  --purple: #0a0a45; /* deep navy end of the dark panel */
   --soft: #c9ccd3;
   --muted: #4d5263; /* author lines; 7.6:1 on white */
-  --names: #000080; /* hero language names, drawn faintly on the canvas */
-  --names-boost: 1;
+  --names: #06401c; /* hero language names: a dark green of the mint's own hue, drawn faintly on the canvas */
+  --names-boost: 1.2;
 
   --font: Archivo, "Helvetica Neue", Arial, sans-serif;
 }
@@ -28,7 +28,7 @@ img { max-width: 100%; height: auto; display: block; }
 p { margin: 0; }
 a { color: var(--blue); text-underline-offset: 3px; }
 a:focus-visible, summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
-/* blue on the dark footer is 1.6:1; mint is 13.8:1 */
+/* blue on the dark footer is 1.6:1; mint is 13.2:1 */
 .top a:focus-visible, .foot a:focus-visible { outline-color: var(--mint); }
 section[id] { scroll-margin-top: 2rem; }
 
@@ -230,22 +230,3 @@ h2.second { margin-top: clamp(3rem, 6vw, 4.5rem); }
   html { scroll-behavior: auto; }
   .go::before, .pub-group a { transition: none; }
 }
-
-/* ==== Colour chooser (TEMPORARY): two candidate palettes, switched by palette.js when the page is opened with ?pick ==== */
-/* A: refined mint. Cooler green, names in dark green, dark panel fades to deep navy. */
-:root[data-palette="a"] { --mint: #a8f0b2; --purple: #0a0a45; --names: #06401c; --names-boost: 1.2; }
-/* B: amber and indigo. Amber field, indigo for rules and links, pale amber tint, flat indigo panel. */
-:root[data-palette="b"] { --navy: #1b2360; --blue: #2a3aa8; --mint: #f7b52c; --lavender: #fbefd0; --purple: #151b42; --names: #6b3d00; --names-boost: 1.07; }
-:root[data-palette="b"] .night { background: var(--purple); }
-:root[data-palette="b"] .mark-a { fill: var(--navy); }
-:root[data-palette="b"] .mark-tick { stroke: var(--white); }
-.picker {
-  position: fixed; left: 50%; bottom: 1rem; transform: translateX(-50%); z-index: 50;
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.25rem; max-width: calc(100vw - 2rem);
-  padding: 0.4rem; background: #17191c; color: #ffffff; border: 2px solid #ffffff; font-size: 0.875rem;
-}
-.picker span { padding: 0 0.6rem; font-weight: 700; }
-.picker button { font: inherit; font-weight: 700; padding: 0.55rem 0.9rem; border: 0; background: none; color: #ffffff; cursor: pointer; }
-.picker button:hover { text-decoration: underline; }
-.picker button[aria-pressed="true"] { background: #ffffff; color: #17191c; }
-.picker button:focus-visible { outline: 3px solid #ffffff; outline-offset: 2px; }
