@@ -16,6 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700;800&display=swap">
 <link rel="stylesheet" href="styles.css">
+<script src="palette.js"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -272,7 +273,7 @@
   var LANES = [[.2, .14, .03, .12], [.5, .26, .06, .16], [.8, .16, .045, .13]];
   var ctx = cv.getContext('2d'), h1 = hero.querySelector('h1'), band = hero.querySelector('.hero-band');
   var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var navy = getComputedStyle(hero).getPropertyValue('--navy').trim() || '#000080';
+  var boost = 1;
   var W = 0, H = 0, left = 0, next = 0, lanes = [], seen = true, raf = 0, last = 0, px = 0, tx = 0;
 
   // give an item the next name (a stride of 7 walks all 50 before any repeats) and park it at x
@@ -288,7 +289,9 @@
     W = r.width; H = r.height;
     cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.fillStyle = navy;
+    var cs = getComputedStyle(hero);
+    ctx.fillStyle = cs.getPropertyValue('--names').trim() || '#000080';
+    boost = parseFloat(cs.getPropertyValue('--names-boost')) || 1;
     next = 0;
     lanes = LANES.map(function (l, i) {
       var size = Math.round(top * l[1]);
@@ -306,7 +309,7 @@
     px += (tx - px) * Math.min(1, dt * 3);   // ease toward the pointer
     for (var i = 0; i < lanes.length; i++) {
       var L = lanes[i], end = 0, first = L.items[0], j, it;
-      ctx.font = L.font; ctx.globalAlpha = L.a;
+      ctx.font = L.font; ctx.globalAlpha = L.a * boost;
       for (j = 0; j < L.items.length; j++) {
         it = L.items[j];
         it.x -= L.v * dt;
@@ -323,7 +326,8 @@
   function run() { if (!raf && !still && seen && !document.hidden) raf = requestAnimationFrame(frame); }
 
   document.fonts.ready.then(function () {
-    new ResizeObserver(layout).observe(hero);   // also fires once on observe: that is the first frame
+    new ResizeObserver(layout).observe(hero);
+    document.addEventListener('palettechange', layout);   // colour chooser   // also fires once on observe: that is the first frame
     if (still) return;
     new IntersectionObserver(function (e) { seen = e[e.length - 1].isIntersecting; run(); }).observe(hero);
     document.addEventListener('visibilitychange', run);
