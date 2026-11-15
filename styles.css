@@ -14,6 +14,7 @@
   --lavender: #e5e5f2;
   --purple: #1f0038;
   --soft: #c9ccd3;
+  --muted: #4d5263; /* author lines; 7.6:1 on white */
 
   --font: Archivo, "Helvetica Neue", Arial, sans-serif;
 }
@@ -133,6 +134,9 @@ main > section { margin-bottom: clamp(3.5rem, 7vw, 6rem); }
 .pub-group a:hover .pub-title { text-decoration: underline; text-decoration-thickness: 2px; }
 .pub-title { font-size: 1.0625rem; line-height: 1.35; font-weight: 700; }
 .pub-title b { font-weight: 800; }
+/* authors sit under the title; team members are bold and dark */
+.pub-authors { grid-column: 1; font-size: 0.9375rem; line-height: 1.4; color: var(--muted); }
+.pub-authors b { font-weight: 700; color: var(--ink); }
 .pub-venue { font-size: 0.875rem; font-weight: 700; color: var(--navy); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .pub-venue span { font-weight: 400; margin-left: 0.35rem; }
 
