@@ -54,7 +54,15 @@ h3 { font-size: 1.4rem; line-height: 1.2; }
 .top nav a { color: var(--ink); text-decoration: none; font-size: 1rem; }
 .top nav a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
 .top .go { color: var(--navy); font-size: 1rem; white-space: nowrap; }
-.logo { font-weight: 700; font-size: 1.5rem; letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none; color: var(--navy); }
+/* Logo: an A whose crossbar is a tick (tested, passed), beside the name in the heading face */
+.logo { display: inline-flex; align-items: center; gap: 0.6rem; font-weight: 900; font-size: 1.7rem; line-height: 1; letter-spacing: -0.035em; text-decoration: none; color: var(--navy); }
+.mark { width: 2.25rem; height: 2.25rem; flex: none; }
+.mark-box { fill: var(--navy); }
+.mark-a { fill: var(--white); }
+.mark-tick { fill: none; stroke: var(--mint); stroke-width: 4; }
+.foot .mark-box { fill: var(--mint); }
+.foot .mark-a { fill: var(--ink); }
+.foot .mark-tick { stroke: var(--navy); }
 
 /* Panels */
 .panel { padding: clamp(1.75rem, 4.5vw, 4rem); display: grid; gap: 1.5rem; align-content: center; justify-items: start; }
@@ -149,7 +157,7 @@ h2.second { margin-top: clamp(3rem, 6vw, 4.5rem); }
 /* Footer, on the same three-column grid as the page */
 .foot { background: var(--ink); color: var(--white); padding-block: 3.5rem; }
 .foot-in { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; align-items: start; }
-.foot .logo { color: var(--white); display: inline-block; margin-bottom: 1rem; }
+.foot .logo { color: var(--white); margin-bottom: 1rem; }
 .foot p { font-size: 1rem; }
 .foot p a { color: var(--white); }
 .foot nav { grid-column: span 2; display: flex; flex-wrap: wrap; gap: 0.25rem 2rem; border-top: 1px solid var(--soft); padding-top: 0.75rem; }
@@ -186,7 +194,8 @@ h2.second { margin-top: clamp(3rem, 6vw, 4.5rem); }
 }
 @media (max-width: 34rem) {
   .cols.four { grid-template-columns: minmax(0, 1fr); }
-  .logo { font-size: 1.25rem; letter-spacing: 0.16em; }
+  .logo { font-size: 1.45rem; }
+  .mark { width: 2rem; height: 2rem; }
   .hero { padding-inline: 1.25rem; }
 }
 @media (prefers-reduced-motion: reduce) {
