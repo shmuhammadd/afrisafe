@@ -196,11 +196,11 @@ h2.second { margin-top: clamp(3rem, 6vw, 4.5rem); }
   /* Fellowship and Work with us: columns hang from the banner, and the banner's dividing rule runs on down.
      Fellowship: banner split in half, rule continues between steps 2 and 3.
      Work with us: banner split one third to two thirds, rule continues between columns 1 and 2. */
-  #fellowship .cols, #involved .cols { gap: 0; margin-top: 0; }
-  #fellowship .cols > *, #involved .cols > * { border-top: 0; border-left: 1px solid var(--navy); padding: 1.5rem clamp(1.5rem, 3vw, 2.5rem) 0.5rem; }
-  #fellowship .cols > :first-child, #involved .cols > :first-child { border-left: 0; }
-  #fellowship .cols > :nth-child(3), #involved .cols > :nth-child(2) { border-left-width: 2px; }
-  #involved .banner { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
+  #fellowship .cols, #involved .cols, #courses .cols { gap: 0; margin-top: 0; }
+  #fellowship .cols > *, #involved .cols > *, #courses .cols > * { border-top: 0; border-left: 1px solid var(--navy); padding: 1.5rem clamp(1.5rem, 3vw, 2.5rem) 0.5rem; }
+  #fellowship .cols > :first-child, #involved .cols > :first-child, #courses .cols > :first-child { border-left: 0; }
+  #fellowship .cols > :nth-child(3), #involved .cols > :nth-child(2), #courses .cols > :nth-child(2) { border-left-width: 2px; }
+  #involved .banner, #courses .banner { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
 }
 
 @media (max-width: 60rem) {
