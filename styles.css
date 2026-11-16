@@ -100,6 +100,8 @@ main > section { margin-bottom: clamp(3.5rem, 7vw, 6rem); }
 .cols.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .cols.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .cols.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.offers { list-style: none; margin: 2.5rem 0 0; padding: 0; border-top: 2px solid var(--navy); }
+.offers li { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr); gap: 0.75rem 2rem; align-items: baseline; padding-block: 1.25rem; border-bottom: 1px solid var(--navy); }
 .cols > * { border-top: 1px solid var(--navy); padding-top: 1.25rem; display: grid; gap: 0.75rem; align-content: start; justify-items: start; }
 
 /* Dark facts panel */
@@ -211,6 +213,7 @@ h2.second { margin-top: clamp(3rem, 6vw, 4.5rem); }
   .hero-band, .banner, .cols.two, .cols.three, .foot-in { grid-template-columns: minmax(0, 1fr); }
   .lede { grid-column: auto; }
   .cols.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .offers li { grid-template-columns: minmax(0, 1fr); }
   .people { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .banner > div { border-left: 0; border-top: 2px solid var(--navy); }
 }
