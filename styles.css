@@ -15,8 +15,6 @@
   --purple: #0a0a45; /* deep navy end of the dark panel */
   --soft: #c9ccd3;
   --muted: #4d5263; /* author lines; 7.6:1 on white */
-  --names: #06401c; /* hero language names: a dark green of the mint's own hue, drawn faintly on the canvas */
-  --names-boost: 1.2;
 
   --font: Archivo, "Helvetica Neue", Arial, sans-serif;
 }
@@ -73,8 +71,7 @@ main { padding-top: clamp(1.25rem, 3vw, 2rem); }
 .night { background: linear-gradient(90deg, var(--ink), var(--purple)); color: var(--white); }
 
 /* Hero: headline across the mint panel; lede and links sit on the page's three columns under a navy rule */
-/* the space above the headline is the stage for the drifting language names */
-.hero { padding-top: clamp(6rem, 14vw, 11rem); gap: clamp(2rem, 4vw, 3.5rem); justify-items: stretch; }
+.hero { padding-top: clamp(3rem, 7vw, 6rem); gap: clamp(2rem, 4vw, 3.5rem); justify-items: stretch; }
 .hero-band { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem 2rem; align-items: start; border-top: 2px solid var(--hero-accent, var(--navy)); padding-top: 1.5rem; }
 .lede { grid-column: span 2; max-width: 42rem; font-size: clamp(1.1rem, 1.5vw, 1.3rem); line-height: 1.35; }
 .hero-links { list-style: none; margin: 0; padding: 0; color: var(--hero-accent, var(--navy)); }
@@ -82,23 +79,12 @@ main { padding-top: clamp(1.25rem, 3vw, 2rem); }
 .hero-links li:first-child { padding-top: 0; }
 .hero-links li + li { border-top: 1px solid var(--hero-accent, var(--navy)); }
 /* Temporary hero colour options, switched by the ?pick chooser. */
-[data-langs="off"] .hero-langs { display: none; }
-[data-langs="off"] .hero { padding-top: clamp(3rem, 7vw, 6rem); }
-[data-hero="navy"] .hero { background: #000080; color: var(--white); --hero-accent: var(--mint); --names: #ffffff; }
-[data-hero="night"] .hero { background: linear-gradient(90deg, var(--ink), var(--purple)); color: var(--white); --hero-accent: var(--mint); --names: #ffffff; }
-[data-hero="violet"] .hero { background: #20123a; color: var(--white); --hero-accent: #cb9eff; --names: #cb9eff; }
-[data-hero="glow"] .hero { background: radial-gradient(ellipse 90% 70% at 50% 100%, #6b45d6, #20123a 75%); color: var(--white); --hero-accent: #ffffff; --names: #ffffff; }
+[data-hero="navy"] .hero { background: #000080; color: var(--white); --hero-accent: var(--mint); }
+[data-hero="night"] .hero { background: linear-gradient(90deg, var(--ink), var(--purple)); color: var(--white); --hero-accent: var(--mint); }
+[data-hero="violet"] .hero { background: #20123a; color: var(--white); --hero-accent: #cb9eff; }
+[data-hero="glow"] .hero { background: radial-gradient(ellipse 90% 70% at 50% 100%, #6b45d6, #20123a 75%); color: var(--white); --hero-accent: #ffffff; }
 /* flex keeps a wrapped second line under the text, clear of the arrow */
 .hero-links .go { display: flex; }
-
-/* --- Hero language names (canvas) ---------------------------------------------------------
-   A decorative canvas behind the hero content; the inline script at the end of index.html draws
-   on it. Out of flow, so it never changes the hero's size. Empty and invisible without JavaScript. */
-.hero { position: relative; isolation: isolate; }
-.hero-langs {
-  position: absolute; top: 0; left: 0; z-index: -1; width: 100%; height: 100%; pointer-events: none;
-}
-/* --- end hero language names --------------------------------------------------------------- */
 
 main > section { margin-bottom: clamp(3.5rem, 7vw, 6rem); }
 
