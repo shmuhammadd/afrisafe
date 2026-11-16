@@ -52,7 +52,7 @@
 
 <main id="main" class="wrap">
 
-<section class="panel mint hero">
+<section class="panel night hero">
   <h1>Making AI safe for Africa.</h1>
   <div class="hero-band">
     <p class="lede">AfriSafe is a research group for AI safety, alignment and education in Africa. We find where AI models fail African users, study how to align them with African languages and cultures, and teach Africans to use AI safely.</p>
@@ -64,62 +64,28 @@
 </section>
 
 <section id="offer" class="block">
-  <div data-opt="a">
-    <h2>What we offer</h2>
-    <div class="cols four">
-      <article>
-        <h3>For AI labs</h3>
-        <p>We test your model before release. Native speakers attack it in African languages your team cannot staff.</p>
-        <a class="go" href="#involved">Test your model</a>
-      </article>
-      <article>
-        <h3>For researchers</h3>
-        <p>A three-month fellowship, paid and remote, that trains you to test AI models in your own language.</p>
-        <a class="go" href="#fellowship">See the fellowship</a>
-      </article>
-      <article>
-        <h3>For academics and students</h3>
-        <p>Free online courses on how to use AI well and safely.</p>
-        <a class="go" href="#courses">See the courses</a>
-      </article>
-      <article>
-        <h3>For funders and partners</h3>
-        <p>Research you can join or support: benchmarks, red teaming and a log of AI incidents in Africa.</p>
-        <a class="go" href="#involved">Work with us</a>
-      </article>
-    </div>
-  </div>
-  <div data-opt="b" hidden>
-    <h2>What we offer</h2>
-    <ul class="offers" role="list">
-      <li><h3>For AI labs</h3><p>We test your model before release. Native speakers attack it in African languages your team cannot staff.</p><a class="go" href="#involved">Test your model</a></li>
-      <li><h3>For researchers</h3><p>A three-month fellowship, paid and remote, that trains you to test AI models in your own language.</p><a class="go" href="#fellowship">See the fellowship</a></li>
-      <li><h3>For academics and students</h3><p>Free online courses on how to use AI well and safely.</p><a class="go" href="#courses">See the courses</a></li>
-      <li><h3>For funders and partners</h3><p>Research you can join or support: benchmarks, red teaming and a log of AI incidents in Africa.</p><a class="go" href="#involved">Work with us</a></li>
-    </ul>
-  </div>
-  <div data-opt="c" hidden>
-    <h2>Our focus</h2>
-    <div class="cols three">
-      <article>
-        <h3>AI safety</h3>
-        <p>We test AI models in African languages and publish where they fail.</p>
-        <a class="go" href="#involved">Red teaming for AI labs</a>
-        <a class="go" href="#research">Our research areas</a>
-      </article>
-      <article>
-        <h3>Alignment</h3>
-        <p>We study whether models respect African cultures, and whether they behave in African languages as they do in English.</p>
-        <a class="go" href="#involved">Collaborate on research</a>
-        <a class="go" href="#papers">Read our papers</a>
-      </article>
-      <article>
-        <h3>Education</h3>
-        <p>We train researchers through a paid fellowship and teach free AI courses for academics and students.</p>
-        <a class="go" href="#fellowship">The paid fellowship</a>
-        <a class="go" href="#courses">Free AI courses</a>
-      </article>
-    </div>
+  <h2>What we offer</h2>
+  <div class="cols four">
+    <article>
+      <h3>For AI labs</h3>
+      <p>We test your model before release. Native speakers attack it in African languages your team cannot staff.</p>
+      <a class="go" href="#involved">Test your model</a>
+    </article>
+    <article>
+      <h3>For researchers</h3>
+      <p>A three-month fellowship, paid and remote, that trains you to test AI models in your own language.</p>
+      <a class="go" href="#fellowship">See the fellowship</a>
+    </article>
+    <article>
+      <h3>For academics and students</h3>
+      <p>Free online courses on how to use AI well and safely.</p>
+      <a class="go" href="#courses">See the courses</a>
+    </article>
+    <article>
+      <h3>For funders and partners</h3>
+      <p>Research you can join or support: benchmarks, red teaming and a log of AI incidents in Africa.</p>
+      <a class="go" href="#involved">Work with us</a>
+    </article>
   </div>
 </section>
 
@@ -353,28 +319,5 @@
     </div>
   </div>
 </footer>
-<script>
-/* Temporary chooser: open the page with ?pick to compare the three layouts. */
-if (location.search.includes('pick')) {
-  const opts = document.querySelectorAll('#offer [data-opt]');
-  const bar = document.createElement('div');
-  bar.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;padding:.75rem;background:#17191c';
-  for (const [k, label] of [['a', 'A: by visitor, columns'], ['b', 'B: by visitor, rows'], ['c', 'C: by focus area']]) {
-    const btn = document.createElement('button');
-    btn.textContent = label;
-    btn.style.cssText = 'font:inherit;padding:.5rem 1rem;border:2px solid #a8f0b2;background:#17191c;color:#fff;cursor:pointer';
-    btn.onclick = () => opts.forEach(o => { o.hidden = o.dataset.opt !== k; });
-    bar.append(btn);
-  }
-  for (const [k, label] of [['', 'Hero 1: mint (now)'], ['navy', 'Hero 2: navy'], ['night', 'Hero 3: black to navy'], ['violet', 'Hero 4: Firefox purple'], ['glow', 'Hero 5: Firefox purple, glow']]) {
-    const btn = document.createElement('button');
-    btn.textContent = label;
-    btn.style.cssText = 'font:inherit;padding:.5rem 1rem;border:2px solid #fff;background:#17191c;color:#fff;cursor:pointer';
-    btn.onclick = () => { document.documentElement.dataset.hero = k; };
-    bar.append(btn);
-  }
-  document.body.append(bar);
-}
-</script>
 </body>
 </html>
