@@ -82,6 +82,8 @@ main { padding-top: clamp(1.25rem, 3vw, 2rem); }
 .hero-links li:first-child { padding-top: 0; }
 .hero-links li + li { border-top: 1px solid var(--hero-accent, var(--navy)); }
 /* Temporary hero colour options, switched by the ?pick chooser. */
+[data-langs="off"] .hero-langs { display: none; }
+[data-langs="off"] .hero { padding-top: clamp(3rem, 7vw, 6rem); }
 [data-hero="navy"] .hero { background: #000080; color: var(--white); --hero-accent: var(--mint); --names: #ffffff; }
 [data-hero="night"] .hero { background: linear-gradient(90deg, var(--ink), var(--purple)); color: var(--white); --hero-accent: var(--mint); --names: #ffffff; }
 [data-hero="violet"] .hero { background: #20123a; color: var(--white); --hero-accent: #cb9eff; --names: #cb9eff; }

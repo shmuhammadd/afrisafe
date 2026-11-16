@@ -447,6 +447,11 @@ if (location.search.includes('pick')) {
     btn.onclick = () => { document.documentElement.dataset.hero = k; document.dispatchEvent(new Event('heroskin')); };
     bar.append(btn);
   }
+  const off = document.createElement('button');
+  off.textContent = 'Moving languages: on';
+  off.style.cssText = 'font:inherit;padding:.5rem 1rem;border:2px solid #cb9eff;background:#17191c;color:#fff;cursor:pointer';
+  off.onclick = () => { const d = document.documentElement.dataset; d.langs = d.langs === 'off' ? '' : 'off'; off.textContent = 'Moving languages: ' + (d.langs === 'off' ? 'off' : 'on'); };
+  bar.append(off);
   document.body.append(bar);
 }
 </script>
