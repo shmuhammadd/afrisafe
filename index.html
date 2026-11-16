@@ -417,6 +417,7 @@
   function run() { if (!raf && !still && seen && !document.hidden) raf = requestAnimationFrame(frame); }
 
   document.fonts.ready.then(function () {
+    document.addEventListener("heroskin", layout);  // temporary: the ?pick chooser changes the hero colours
     new ResizeObserver(layout).observe(hero);   // also fires once on observe: that is the first frame
     if (still) return;
     new IntersectionObserver(function (e) { seen = e[e.length - 1].isIntersecting; run(); }).observe(hero);
@@ -431,12 +432,19 @@
 if (location.search.includes('pick')) {
   const opts = document.querySelectorAll('#offer [data-opt]');
   const bar = document.createElement('div');
-  bar.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;gap:.5rem;justify-content:center;padding:.75rem;background:#17191c';
+  bar.style.cssText = 'position:fixed;left:0;right:0;bottom:0;z-index:9;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;padding:.75rem;background:#17191c';
   for (const [k, label] of [['a', 'A: by visitor, columns'], ['b', 'B: by visitor, rows'], ['c', 'C: by focus area']]) {
     const btn = document.createElement('button');
     btn.textContent = label;
     btn.style.cssText = 'font:inherit;padding:.5rem 1rem;border:2px solid #a8f0b2;background:#17191c;color:#fff;cursor:pointer';
     btn.onclick = () => opts.forEach(o => { o.hidden = o.dataset.opt !== k; });
+    bar.append(btn);
+  }
+  for (const [k, label] of [['', 'Hero 1: mint (now)'], ['navy', 'Hero 2: navy'], ['night', 'Hero 3: black to navy'], ['violet', 'Hero 4: Firefox purple'], ['glow', 'Hero 5: Firefox purple, glow']]) {
+    const btn = document.createElement('button');
+    btn.textContent = label;
+    btn.style.cssText = 'font:inherit;padding:.5rem 1rem;border:2px solid #fff;background:#17191c;color:#fff;cursor:pointer';
+    btn.onclick = () => { document.documentElement.dataset.hero = k; document.dispatchEvent(new Event('heroskin')); };
     bar.append(btn);
   }
   document.body.append(bar);
